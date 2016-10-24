@@ -9,11 +9,12 @@ class Single extends React.Component {
     render() {
         const index = this.props.posts.findIndex(p => p.code === this.props.params.postId);
         const post = this.props.posts[index];
+        const postComments = this.props.comments[this.props.params.postId] || [];
 
         return (
             <div className="single-photo">
                 <Photo i={index} post={post} {...this.props} />
-                <Comments/>
+                <Comments postComments={postComments} />
             </div>
         );
     }
